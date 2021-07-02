@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<table>
+    <thead>
+        <th></th>
+        <th>Site Name</th>
+        <th>Username</th>
+        <th>Passkey</th>
+        <th>Last Changed</th>
+    </thead>
+    {% for key in passkeys %}
+    <tr>
+        <td><img src={{key.icon_url}} height="30" width="30" /></td>
+        <td><a href={{key.site_url}}>{{key.name}}</a></td>
+        <td>{{key.username}}</td>
+        <td>{{key.passkey}}</td>
+        <td>{{key.last_set}}</td>
+    </tr>
+    {% endfor %}
+
+</table>
+{% endblock %}

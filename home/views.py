@@ -1,12 +1,16 @@
 from django.shortcuts import render, redirect
-from home.forms import LoginForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+
 from pwdmanager.decorators import login_required
+from home.forms import LoginForm
+from passkey.models import Passkey
 
 @login_required
 def indexView(request):
-    return render(request, 'homePage.html')
+    if request.method=='GET':
+        context = {'passkeys' : Passkey.objects.filter(user=request.user)}
+        return render(request, 'index.html', context)
 
 def loginView(request):
     context = {}

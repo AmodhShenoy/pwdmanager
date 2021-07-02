@@ -200,3 +200,5 @@ db.sqlite3
 *venv*
 
 *pycache*
+
+.vscode

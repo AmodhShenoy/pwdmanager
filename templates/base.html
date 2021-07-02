@@ -1,14 +1,26 @@
 <html>
-    <head>
-        <title>Password Manager</title>
-        {% block css %}
-        {% endblock %}
-    </head>
 
-    <body>
-        {% block body %}
-        {% endblock %}
-    </body>
-    {% block js %}
+<head>
+    <title>Password Manager</title>
+    {% block css %}
     {% endblock %}
+</head>
+
+<body>
+    {# Messages #}
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+        <li style="list-style-type: fill !important">{{message}}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    {# Main body #}
+    {% block body %}
+    {% endblock %}
+</body>
+{% block js %}
+{% endblock %}
+
 </html>
